@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <h1>Naamcontrole via een functie</h1>
+</head>
+
+<body>
+    <script>
+        let voornaam = prompt ('Geef je voornaam');
+        let achternaam;
+        
+        voornaam = naamcontrole(voornaam);
+            
+            if (voornaam != false) {
+                achternaam = prompt ('Geef je achternaam');
+                achternaam = naamcontrole(achternaam);
+                
+                    if (achternaam != false) {
+                        document.write (`<p>Hey ${voornaam} ${achternaam}</p>`);
+                    }
+                    
+            };
+                    
+
+        function naamcontrole(ontvangenNaam) {
+            if (ontvangenNaam === null) {
+                document.write (`<p>U heeft geannuleerd.</p>`);
+                return false;
+            }
+
+            else if (ontvangenNaam.length == 0) {
+                document.write (`<p>U heeft niets ingegeven.</p>`);
+                return false;
+            }
+
+            else if (ontvangenNaam.length < 2) {
+                document.write (`<p>U moet minimaal 2 karakters ingeven.</p>`);
+                return false;
+            }
+
+            else {
+                return ontvangenNaam.charAt(0).toUpperCase() +ontvangenNaam.substring(1,ontvangenNaam.length);
+            }
+        };
+
+        
+    </script>
+
+
+
+</body>
+</html>
